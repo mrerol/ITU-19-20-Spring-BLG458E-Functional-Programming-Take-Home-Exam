@@ -1,0 +1,156 @@
+- init:
+    run: rm -f part1 part1.o part1.hi
+    visible: false
+- compile:
+    run: ghc part1.hs -o part1
+    blocker: true
+- case_20th_century:
+    run: ./part1
+    script:
+      - send: "sundays1 1901 2000"
+      - expect: "171"
+      - expect: _EOF_
+    points: 2
+- case_20th_century_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 1901 2000"
+      - expect: "171"
+      - expect: _EOF_
+    points: 5
+- case_20th_century_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 1901 2000"
+      - expect: "171"
+      - expect: _EOF_
+    points: 5
+- case_same_year_1:
+    run: ./part1
+    script:
+      - send: "sundays1 2000 2000"
+      - expect: "1"
+      - expect: _EOF_
+    points: 4
+- case_same_year_1_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 2000 2000"
+      - expect: "1"
+      - expect: _EOF_
+    points: 7
+- case_same_year_1_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 2000 2000"
+      - expect: "1"
+      - expect: _EOF_
+    points: 7
+- case_same_year_2:
+    run: ./part1
+    script:
+      - send: "sundays1 1901 1901"
+      - expect: "2"
+      - expect: _EOF_
+    points: 4
+- case_same_year_2_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 1901 1901"
+      - expect: "2"
+      - expect: _EOF_
+    points: 7
+- case_same_year_2_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 1901 1901"
+      - expect: "2"
+      - expect: _EOF_
+    points: 7
+- case_finish_before_start:
+    run: ./part1
+    script:
+      - send: "sundays1 2000 1901"
+      - expect: "0"
+      - expect: _EOF_
+    points: 4
+- case_finish_before_start_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 2000 1901"
+      - expect: "0"
+      - expect: _EOF_
+    points: 7
+- case_finish_before_start_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 2000 1901"
+      - expect: "0"
+      - expect: _EOF_
+    points: 7
+- case_itu:
+    run: ./part1
+    script:
+      - send: "sundays1 1773 2020"
+      - expect: "427"
+      - expect: _EOF_
+    points: 2
+- case_itu_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 1773 2020"
+      - expect: "427"
+      - expect: _EOF_
+    points: 5
+- case_itu_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 1773 2020"
+      - expect: "427"
+      - expect: _EOF_
+    points: 5
+- case_arbitrary_1:
+    run: ./part1
+    script:
+      - send: "sundays1 132 1285"
+      - expect: "1985"
+      - expect: _EOF_
+    points: 2
+- case_arbitrary_1_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 132 1285"
+      - expect: "1985"
+      - expect: _EOF_
+    points: 5
+- case_arbitrary_1_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 132 1285"
+      - expect: "1985"
+      - expect: _EOF_
+    points: 5
+- case_arbitrary_2:
+    run: ./part1
+    script:
+      - send: "sundays1 1856 1913"
+      - expect: "100"
+      - expect: _EOF_
+    points: 2
+- case_arbitrary_2_tr:
+    run: ./part1
+    script:
+      - send: "sundays1tr 1856 1913"
+      - expect: "100"
+      - expect: _EOF_
+    points: 4
+- case_arbitrary_2_alternative:
+    run: ./part1
+    script:
+      - send: "sundays2 1856 1913"
+      - expect: "100"
+      - expect: _EOF_
+    points: 4
+- cleanup:
+    run: rm -f part1 part1.o part1.hi
+    visible: false
